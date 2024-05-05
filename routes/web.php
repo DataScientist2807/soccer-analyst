@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterIndexController;
 use App\Http\Controllers\Auth\LoginIndexController;
 use App\Http\Controllers\Account\AccountIndexController;
+use App\Http\Controllers\Account\SecurityIndexController;
 
 
 /*
@@ -24,3 +25,4 @@ Route::get('/dashboard', DashboardController::class)->name('dashboard');
 Route::get('/auth/register', RegisterIndexController::class)->name('auth.register');
 Route::get('/auth/login', LoginIndexController::class)->name('auth.login');
 Route::get('/account', AccountIndexController::class)->name('account.index');
+Route::get('/account/security', SecurityIndexController::class)->name('account.security.index');

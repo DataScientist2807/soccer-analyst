@@ -8,7 +8,7 @@ defineOptions({ layout: [Default, Account] })
 
 <template>
 <div>
-    Profile Information
+    Security Information
 </div>
 </template>
 

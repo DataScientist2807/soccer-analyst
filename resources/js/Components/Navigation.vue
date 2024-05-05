@@ -54,7 +54,7 @@ const logout = () => {
 
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <Link href="#" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Security</Link>
+                  <Link :href="route('account.security.index')" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Security</Link>
 
                 </MenuItem>
                 <!-- <MenuItem v-slot="{ active, close }">
