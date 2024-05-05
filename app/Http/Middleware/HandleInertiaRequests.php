@@ -44,6 +44,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user() ? UserResource::make($request->user()) : null
             ],
             'features' => collect(config('fortify.features'))->mapWithKeys(fn ($key) => [$key => true]),
+            'toast' => session('toast'),
         ]);
     }
 }
