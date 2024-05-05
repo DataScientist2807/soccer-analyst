@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use App\Http\Responses\LoginResponse;
+use App\Http\Responses\ProfileInformationUpdatedResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -24,7 +25,10 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,
             LoginResponse::class
-
+        );
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\ProfileInformationUpdatedResponse::class,
+            ProfileInformationUpdatedResponse::class
         );
     }
 
