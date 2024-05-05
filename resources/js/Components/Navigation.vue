@@ -48,13 +48,13 @@ const logout = () => {
             </MenuButton>
 
             <MenuItems class="absolute right-0 z-10 mt-2 w-48 bg-white border border-slate-200 focus:outline-none">
-                <MenuItem v-slot="{ active, close }">
+                <MenuItem v-slot="{ active }">
 
-                  <Link href="#" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }" v-on:mouseup="close">Account</Link>
+                  <Link :href="route('account.index')" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Account</Link>
 
                 </MenuItem>
-                <MenuItem v-slot="{ active, close }">
-                  <Link href="#" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }" v-on:mouseup="close">Security</Link>
+                <MenuItem v-slot="{ active }">
+                  <Link href="#" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Security</Link>
 
                 </MenuItem>
                 <!-- <MenuItem v-slot="{ active, close }">
