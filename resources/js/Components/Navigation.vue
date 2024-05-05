@@ -22,9 +22,9 @@ const logout = () => {
           </div>
           <div class="flex justify-between w-full">
             <div class="hidden sm:flex sm:ml-6 space-x-8">
-                <Link :href="route('home')" class="inline-flex items-center border-b-2 border-transparent hover:border-blue-200 text-sm font-medium text-gray-900">
+                <Link :href="route('home')" class="inline-flex items-center border-b-2 border-transparent hover:border-blue-200 text-sm font-medium text-gray-900" :class="{ '!border-blue-900': $page.props.ziggy.route_name === 'home'}">
                     Home</Link>
-                    <Link :href="route('dashboard')" class="inline-flex items-center border-b-2 border-transparent hover:border-blue-200 text-sm font-medium text-gray-900">
+                    <Link :href="route('dashboard')" class="inline-flex items-center border-b-2 border-transparent hover:border-blue-200 text-sm font-medium text-gray-900" :class="{ '!border-blue-900': $page.props.ziggy.route_name === 'dashboard'}">
                     Dashboard</Link>
             </div>
             <div class="hidden sm:flex sm:ml-6 space-x-8" v-if="!$page.props.auth.user">
@@ -84,8 +84,8 @@ const logout = () => {
 
     <DisclosurePanel class="sm:hidden">
         <div class="spacey-1 pb-3">
-            <Link :href="route('home')" class="block py-2 px-8 font-medium text-gray-900">Home</Link>
-            <Link :href="route('dashboard')" class="block py-2 px-8 font-medium text-gray-900">Dashboard</Link>
+            <Link :href="route('home')" class="block py-2 px-8 font-medium text-gray-900 border-l-4 border-transparent" :class="{ 'border-blue-900': $page.props.ziggy.route_name === 'home'}">Home</Link>
+            <Link :href="route('dashboard')" class="block py-2 px-8 font-medium text-gray-900 border-l-4 border-transparent" :class="{ 'border-blue-900': $page.props.ziggy.route_name === 'dashboard'}">Dashboard</Link>
         </div>
 
         <div class="spacey-1 pb-3" v-if="!$page.props.auth.user">
