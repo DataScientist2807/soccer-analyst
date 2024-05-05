@@ -41,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function avatarUrl() {
+        return "https://ui-avatars.com/api/?name=" . urlencode($this->name);
+    }
 }
