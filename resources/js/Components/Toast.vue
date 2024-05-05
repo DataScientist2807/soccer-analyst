@@ -1,11 +1,12 @@
 <script setup>
-
+import useToast from '@/composables/useToast'
+const { body, active, hide } = useToast()
 
 </script>
 
 <template>
+<div v-if="active" v-on:click="hide">
+    {{ body }}
+</div>
 
-    <div v-if="$page.props.toast">
-        {{ $page.props.toast }}
-    </div>
 </template>
