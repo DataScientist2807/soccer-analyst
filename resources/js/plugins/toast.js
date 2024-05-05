@@ -6,21 +6,14 @@ const { toast } = useToast()
 export default () => {
 
     router.on('finish', () =>{
-
         let body = usePage().props.toast
-
-
         if (body) {
 
             toast(body, {
-                timeout: 5000
+                timeout: 2000
             })
 
         }
-
-
-
-
     })
 
 }

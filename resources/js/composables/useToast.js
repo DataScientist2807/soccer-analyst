@@ -1,5 +1,4 @@
 import { ref, computed } from 'vue'
-
 const active = ref(false)
 const toastOptions = ref({
     body: '',
@@ -18,8 +17,6 @@ export default () => {
         active.value = true
         timeout = setTimeout(() => {
             active.value = false
-            toastOptions.value.body = ''
-
         }, toastOptions.value.timeout)
     }
     const hide = () => {
