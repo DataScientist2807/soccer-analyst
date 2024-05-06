@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Actions\Contracts\UpdatesUserProfilePhoto;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Actions\Fortify\UpdateUserProfilePhoto;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -29,6 +31,10 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->singleton(
             \Laravel\Fortify\Contracts\ProfileInformationUpdatedResponse::class,
             ProfileInformationUpdatedResponse::class
+        );
+        $this->app->singleton(
+            UpdatesUserProfilePhoto::class,
+            UpdateUserProfilePhoto::class
         );
     }
 
