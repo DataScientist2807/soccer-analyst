@@ -24,8 +24,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'photo' => File::types(['jpg', 'png'])
-            ->max(5 * 1024),
+            'photo' => [
+                'nullable',
+                File::types(['jpg', 'png'])->max(5 * 1024),
+            ],
             'email' => [
                 'required',
                 'string',
@@ -34,8 +36,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 Rule::unique('users')->ignore($user->id),
             ],
         ])->validateWithBag('updateProfileInformation');
-
-        $this->updateUserProfilePhoto->update($user, $input['photo']);
+        if ($input['photo']) {
+            $this->updateUserProfilePhoto->update($user, $input['photo']);
+        }
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {

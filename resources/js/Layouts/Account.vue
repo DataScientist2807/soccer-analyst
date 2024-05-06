@@ -8,14 +8,18 @@ import { Link } from '@inertiajs/vue3'
       <div class="col-span-1">
         <nav class="sm:border-r border-r-slate-100 h-full">
             <ul class="space-y-1">
-                <li><Link :href="route('account.index')" class="text-gray-900 flex p-2 pl-3 text-sm font-semibold" :class="{
+                <li>
+                    <Link :href="route('account.index')" class="text-gray-900 flex p-2 pl-3 text-sm font-semibold" :class="{
                     'bg-gray-100': $page.props.ziggy.route_name === 'account.index'}">
                     Profile Information
-                </Link></li>
-                <li><Link :href="route('account.security.index')" class="text-gray-900 flex p-2 pl-3 text-sm font-semibold" :class="{
+                </Link>
+            </li>
+                <li v-if="$page.props.features.security">
+                    <Link :href="route('account.security.index')" class="text-gray-900 flex p-2 pl-3 text-sm font-semibold" :class="{
                     'bg-gray-100': $page.props.ziggy.route_name === 'account.security.index'}">
                     Securtity
-                </Link></li>
+                </Link>
+            </li>
             </ul>
         </nav>
       </div>

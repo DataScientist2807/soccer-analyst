@@ -48,12 +48,12 @@ const logout = () => {
             </MenuButton>
 
             <MenuItems class="absolute right-0 z-10 mt-2 w-48 bg-white border border-slate-200 focus:outline-none">
-                <MenuItem v-slot="{ active }">
+                <MenuItem v-slot="{ active }" v-if="$page.props.features['update-profile-information']">
 
                   <Link :href="route('account.index')" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Account</Link>
 
                 </MenuItem>
-                <MenuItem v-slot="{ active }">
+                <MenuItem v-slot="{ active }" v-if="$page.props.features.security">
                   <Link :href="route('account.security.index')" class="block px-4 py-2 text-sm text-gray-900" :class="{ 'bg-blue-200' : active }">Security</Link>
 
                 </MenuItem>
