@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use App\Http\Responses\LoginResponse;
 use App\Http\Responses\ProfileInformationUpdatedResponse;
+use App\Http\Responses\PasswordConfirmedResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,10 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->singleton(
             \Laravel\Fortify\Contracts\PasswordUpdateResponse::class,
             PasswordUpdateResponse::class
+        );
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\PasswordConfirmedResponse::class,
+            PasswordConfirmedResponse::class
         );
     }
 
