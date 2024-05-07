@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\LoginIndexController;
 use App\Http\Controllers\Account\AccountIndexController;
 use App\Http\Controllers\Account\SecurityIndexController;
 use Laravel\Fortify\Features;
-
+use Illuminate\Auth\Middleware\RequirePassword;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +22,8 @@ use Laravel\Fortify\Features;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/dashboard', DashboardController::class)->name('dashboard');
+/* Route::get('/dashboard', DashboardController::class)->name('dashboard')->middleware(RequirePassword::using(null, 1));
+ */
 Route::get('/auth/register', RegisterIndexController::class)->name('auth.register');
 Route::get('/auth/login', LoginIndexController::class)->name('auth.login');
 if (Features::enabled(Features::updateProfileInformation())) {
@@ -30,3 +32,5 @@ if (Features::enabled(Features::updateProfileInformation())) {
 if (Features::hasSecurityFeatures()) {
     Route::get('/account/security', SecurityIndexController::class)->name('account.security.index');
 }
+
+require __DIR__ . '/fortify.php';
