@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LoginIndexController extends Controller
+class RecoverIndexController extends Controller
 {
     public function __construct()
     {
@@ -14,7 +14,7 @@ class LoginIndexController extends Controller
 
     public function __invoke()
     {
-        return inertia()->modal('Auth/Login')
+        return inertia()->modal('Auth/Recover')
             ->baseRoute('home');
     }
 }

@@ -11,6 +11,7 @@ class AccountIndexController extends Controller
     {
         $this->middleware(['auth']);
     }
+
     public function __invoke()
     {
         return inertia()->render('Account/Account');

@@ -3,16 +3,20 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Support\Facades\Storage;
-class User extends Authenticatable
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
     use TwoFactorAuthenticatable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +26,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_photo_path',
+        'profile_photo_path'
     ];
 
     /**
@@ -42,12 +46,15 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
-    public function avatarUrl() {
+    public function avatarUrl()
+    {
         if ($this->profile_photo_path) {
             return Storage::disk('local')->url($this->profile_photo_path);
         }
+
         return "https://ui-avatars.com/api/?name=" . urlencode($this->name);
     }
 }

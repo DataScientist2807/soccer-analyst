@@ -11,7 +11,7 @@ class DashboardController extends Controller
         $this->middleware(['auth']);
     }
 
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         return inertia()->render('Dashboard');
     }

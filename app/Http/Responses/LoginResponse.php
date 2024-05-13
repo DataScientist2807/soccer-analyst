@@ -7,8 +7,6 @@ use Laravel\Fortify\Fortify;
 
 class LoginResponse implements LoginResponseContract
 {
-
-
     /**
      * Create an HTTP response that represents the object.
      *
@@ -17,9 +15,6 @@ class LoginResponse implements LoginResponseContract
      */
     public function toResponse($request)
     {
-
-        $username = $request->user()->name;
-        return redirect()->intended(Fortify::redirects('login'))
-        ->with('toast', 'Welcome back ' . $username);
+        return redirect()->intended(Fortify::redirects('login'))->with('toast', 'Welcome back ' . $request->user()->name);
     }
 }

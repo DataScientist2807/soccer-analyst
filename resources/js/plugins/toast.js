@@ -4,16 +4,13 @@ import useToast from '@/composables/useToast'
 const { toast } = useToast()
 
 export default () => {
-
-    router.on('finish', () =>{
+    router.on('finish', () => {
         let body = usePage().props.toast
-        if (body) {
 
+        if (body) {
             toast(body, {
                 timeout: 2000
             })
-
         }
     })
-
 }

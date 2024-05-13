@@ -10,7 +10,6 @@ const form = useForm({
 </script>
 
 <template>
-    <div>
     <Modal class="bg-white max-w-md p-12">
         <h2 class="text-center text-2xl font-bold font-mono text-gray-900">Sign in</h2>
         <form class="mt-6 space-y-6" v-on:submit.prevent="form.post(`/login`)">
@@ -38,9 +37,9 @@ const form = useForm({
                     <input type="checkbox" id="remember" class="h-4 w-4 text-blue-500 focus:ring-blue-500" v-model="form.remember">
                     <label for="remember" class="ml-2 block text-sm text-gray-900">Remember me</label>
                 </div>
-                <!-- <div v-if="$page.props.features['reset-passwords']">
+                <div v-if="$page.props.features['reset-passwords']">
                     <Link :href="route('auth.recover')" class="text-sm text-blue-500 font-semibold">Forgot password</Link>
-                </div> -->
+                </div>
             </div>
 
             <div>
@@ -52,5 +51,4 @@ const form = useForm({
     </Modal>
 
     <Head title="Sign in" />
-</div>
 </template>
